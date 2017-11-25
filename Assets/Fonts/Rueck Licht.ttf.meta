@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a4e03a6bedb701f438f5d2f99042bcf9
+timeCreated: 1511557807
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rueck Licht
+  fontNames:
+  - Rueck Licht
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

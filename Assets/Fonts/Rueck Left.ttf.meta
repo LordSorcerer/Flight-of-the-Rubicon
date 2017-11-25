@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5f3ad9babce7b92498a073bf0c475189
+timeCreated: 1511557807
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rueck Left
+  fontNames:
+  - Rueck Left
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

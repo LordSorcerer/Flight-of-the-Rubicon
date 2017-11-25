@@ -1,26 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 using System.Collections;
+using System.Collections.Generic;
+using System;
  
 public class Authentication : MonoBehaviour
 {
     private string secretKey = "lostintranslation"; // Edit this value and make sure it's the same as the one stored on the server
     public string serverURL = "thousandstorms.com/scripts/fotr.php"; //be sure to add a ? to your url
- 	
- 	public Text username;
-	public Text password;
+ 	//Public extrusions
+ 	public Text usernameText;
+	public Text passwordText;
+    public Text resultText;
 	public Button loginButton;
+    public Button newUserButton;
 
     void Start()
     {
-        loginButton.onClick.AddListener(TaskOnClick);
-
+        loginButton.onClick.AddListener(LoginClick);
+       // newUserButton.onClick.AddListener(NewUserClick);
     }
  
- 	void TaskOnClick(){
- 	        StartCoroutine(CheckLogin());
+ 	void LoginClick(){
+ 	    StartCoroutine(CheckLogin());
  	}
+
+    void NewUserClick(){
+        StartCoroutine(NewLogin());
+    }
  	
     // remember to use StartCoroutine when calling this function!
    
@@ -45,21 +54,48 @@ public class Authentication : MonoBehaviour
  
     // Get the scores from the MySQL DB to display in a GUIText.
     // remember to use StartCoroutine when calling this function!
+
     IEnumerator CheckLogin()
     {
-    	string postURL = serverURL + "?username=" + WWW.EscapeURL(username.text) + "&password=" + password.text;
-        WWW getConnection = new WWW(postURL);
+    	string getURL = serverURL + "?username=" + WWW.EscapeURL(usernameText.text) + "&password=" + passwordText.text;
+        WWW getConnection = new WWW(getURL);
         yield return getConnection;
  
         if (getConnection.error != null)
         {
             print("There was an error logging you in.  Please try again later or contact your administrator.");
         }
-        else
+        else if (getConnection.text != null)
         {
-            Debug.Log(getConnection.text);
-            SceneManager.LoadScene("Client");
+            Debug.Log(getConnection.text.Trim());
+            string result = getConnection.text.Trim();
+            if (result.Contains("successcode01")) {
+                resultText.text = "SUCCESS.  LOGGING INTO THE SERVER.";
+                SceneManager.LoadScene("Client"); 
+            } else {
+                resultText.text = "ERROR. USERNAME AND/OR PASSWORD INCORRECT.  PLEASE TRY AGAIN.";
+            }
+
         }
+    }
+
+IEnumerator NewLogin()
+    {
+        string postURL = serverURL;
+        string newUsername = WWW.EscapeURL(usernameText.text);
+        string newPassword = WWW.EscapeURL(passwordText.text);
+
+        WWWForm postData = new WWWForm();
+        postData.AddField("newusername", newUsername);
+        postData.AddField("newpassword", newPassword);
+        UnityWebRequest postConnection = UnityWebRequest.Post(postURL, postData);
+        yield return postConnection.SendWebRequest();
+		if (postConnection.isNetworkError || postConnection.isHttpError) {
+			resultText.text = "ERROR. YOUR ACCOUNT COULD NOT BE CREATED AT THIS TIME.  PLEASE TRY AGAIN LATER OR CONTACT YOUR.";
+		} else {
+            resultText.text = "SUCCESS. YOUR NEW ACCOUNT HAS BEEN CREATED. YOU MAY LOG IN NOW.";
+        }
+         Debug.Log(postConnection.downloadHandler.text);
     }
 
 	string Md5Sum(string strToEncrypt)
