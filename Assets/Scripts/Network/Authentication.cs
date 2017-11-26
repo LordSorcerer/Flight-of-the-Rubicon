@@ -20,7 +20,7 @@ public class Authentication : MonoBehaviour
     void Start()
     {
         loginButton.onClick.AddListener(LoginClick);
-       // newUserButton.onClick.AddListener(NewUserClick);
+        newUserButton.onClick.AddListener(NewUserClick);
     }
  
  	void LoginClick(){
@@ -57,7 +57,7 @@ public class Authentication : MonoBehaviour
 
     IEnumerator CheckLogin()
     {
-    	string getURL = serverURL + "?username=" + WWW.EscapeURL(usernameText.text) + "&password=" + passwordText.text;
+    	string getURL = serverURL + "?username=" + WWW.EscapeURL(usernameText.text) + "&password=" +  WWW.EscapeURL(passwordText.text);
         WWW getConnection = new WWW(getURL);
         yield return getConnection;
  
@@ -84,18 +84,18 @@ IEnumerator NewLogin()
         string postURL = serverURL;
         string newUsername = WWW.EscapeURL(usernameText.text);
         string newPassword = WWW.EscapeURL(passwordText.text);
-
+        Debug.Log(newUsername);
+        Debug.Log(newPassword);
         WWWForm postData = new WWWForm();
         postData.AddField("newusername", newUsername);
         postData.AddField("newpassword", newPassword);
-        UnityWebRequest postConnection = UnityWebRequest.Post(postURL, postData);
-        yield return postConnection.SendWebRequest();
-		if (postConnection.isNetworkError || postConnection.isHttpError) {
-			resultText.text = "ERROR. YOUR ACCOUNT COULD NOT BE CREATED AT THIS TIME.  PLEASE TRY AGAIN LATER OR CONTACT YOUR.";
+        WWW postConnection = new WWW(postURL, postData);
+        yield return postConnection;
+		if (string.IsNullOrEmpty(postConnection.error)){
+		    resultText.text = "SUCCESS. YOUR NEW ACCOUNT HAS BEEN CREATED. YOU MAY LOG IN NOW.";
 		} else {
-            resultText.text = "SUCCESS. YOUR NEW ACCOUNT HAS BEEN CREATED. YOU MAY LOG IN NOW.";
+            resultText.text = "ERROR. YOUR ACCOUNT COULD NOT BE CREATED AT THIS TIME.  PLEASE TRY AGAIN LATER OR CONTACT YOUR ADMINISTRATOR.";
         }
-         Debug.Log(postConnection.downloadHandler.text);
     }
 
 	string Md5Sum(string strToEncrypt)
