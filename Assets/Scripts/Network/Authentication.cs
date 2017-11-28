@@ -71,7 +71,7 @@ public class Authentication : MonoBehaviour
             string result = getConnection.text.Trim();
             if (result.Contains("successcode01")) {
                 resultText.text = "SUCCESS.  LOGGING INTO THE SERVER.";
-                SceneManager.LoadScene("Client"); 
+                SceneManager.LoadScene("Mars"); 
             } else {
                 resultText.text = "ERROR. USERNAME AND/OR PASSWORD INCORRECT.  PLEASE TRY AGAIN.";
             }
