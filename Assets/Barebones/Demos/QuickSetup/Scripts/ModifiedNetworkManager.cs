@@ -33,7 +33,6 @@ public override void OnServerAddPlayer(NetworkConnection conn, short playerContr
 {
 
 	GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-	GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
 	player.GetComponent<Player>().color = Color.red;
 	NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 }*/

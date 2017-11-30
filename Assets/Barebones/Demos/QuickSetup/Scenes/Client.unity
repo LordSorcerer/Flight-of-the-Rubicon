@@ -227,7 +227,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916173588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 339, y: 211, z: 0}
+  m_LocalPosition: {x: 373.5, y: 338.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1260700959}
@@ -707,12 +707,12 @@ Prefab:
     - target: {fileID: 224702491782574392, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 339
+      value: 373.5
       objectReference: {fileID: 0}
     - target: {fileID: 224702491782574392, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -211
+      value: -338.5
       objectReference: {fileID: 0}
     - target: {fileID: 224954542814078944, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
@@ -732,7 +732,7 @@ Prefab:
     - target: {fileID: 224969607965105752, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.6500015
+      value: 16.650002
       objectReference: {fileID: 0}
     - target: {fileID: 224887364127589366, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
@@ -742,7 +742,7 @@ Prefab:
     - target: {fileID: 224887364127589366, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.6500015
+      value: 16.650002
       objectReference: {fileID: 0}
     - target: {fileID: 224359595542092084, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
@@ -752,7 +752,7 @@ Prefab:
     - target: {fileID: 224359595542092084, guid: 5b67f1ab43403c049908bcf730f6dc92,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.6500015
+      value: 16.650002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b67f1ab43403c049908bcf730f6dc92, type: 2}
@@ -936,7 +936,22 @@ Prefab:
     - target: {fileID: 114509298780526028, guid: 377b961bdc153854193d9d2ce0d03f25,
         type: 2}
       propertyPath: MaxTimeToConnect
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114509298780526028, guid: 377b961bdc153854193d9d2ce0d03f25,
+        type: 2}
+      propertyPath: ReadMasterServerAddressFromCmd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114509298780526028, guid: 377b961bdc153854193d9d2ce0d03f25,
+        type: 2}
+      propertyPath: ServerIp
+      value: 127.0.0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114509298780526028, guid: 377b961bdc153854193d9d2ce0d03f25,
+        type: 2}
+      propertyPath: ServerPort
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377b961bdc153854193d9d2ce0d03f25, type: 2}

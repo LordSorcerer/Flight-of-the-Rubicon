@@ -12,7 +12,7 @@ public class Authentication : MonoBehaviour
     public string serverURL = "thousandstorms.com/scripts/fotr.php"; //be sure to add a ? to your url
  	//Public extrusions
  	public Text usernameText;
-	public Text passwordText;
+	public InputField passwordText;
     public Text resultText;
 	public Button loginButton;
     public Button newUserButton;

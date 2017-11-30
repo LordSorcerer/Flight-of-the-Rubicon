@@ -427,6 +427,16 @@ Prefab:
       propertyPath: GameRoom
       value: 
       objectReference: {fileID: 1187604522}
+    - target: {fileID: 114393632286400710, guid: b3cdc9efc73ead747af7972bc5a0f400,
+        type: 2}
+      propertyPath: m_UseWebSockets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114393632286400710, guid: b3cdc9efc73ead747af7972bc5a0f400,
+        type: 2}
+      propertyPath: m_AutoCreatePlayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3cdc9efc73ead747af7972bc5a0f400, type: 2}
   m_IsPrefabParent: 0
