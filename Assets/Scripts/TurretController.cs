@@ -30,8 +30,8 @@ public class TurretController : NetworkBehaviour{
 				             bulletSpawn2.position,
 				             bulletSpawn2.rotation);
 			// Add velocity to the bullet
-			bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * 10000;
-			bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * 10000;
+			bullet1.GetComponent<Rigidbody> ().velocity = bullet1.transform.forward * 10000;
+			bullet2.GetComponent<Rigidbody> ().velocity = bullet2.transform.forward * 10000;
 
 			NetworkServer.Spawn (bullet1);
 			NetworkServer.Spawn (bullet2);
@@ -62,5 +62,6 @@ public class TurretController : NetworkBehaviour{
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
         Debug.DrawRay(transform.position, newDir, Color.red);
 		transform.rotation = Quaternion.LookRotation(newDir);
+		
 	}
 }
