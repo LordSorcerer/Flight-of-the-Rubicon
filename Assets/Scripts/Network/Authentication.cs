@@ -12,7 +12,7 @@ public class Authentication : MonoBehaviour
     public string serverURL = "thousandstorms.com/scripts/fotr.php"; //be sure to add a ? to your url
  	//Public extrusions
  	public Text usernameText;
-	public InputField passwordText;
+	public Text passwordText;
     public Text resultText;
 	public Button loginButton;
     public Button newUserButton;
@@ -71,7 +71,7 @@ public class Authentication : MonoBehaviour
             string result = getConnection.text.Trim();
             if (result.Contains("successcode01")) {
                 resultText.text = "SUCCESS.  LOGGING INTO THE SERVER.";
-                SceneManager.LoadScene("Mars"); 
+                SceneManager.LoadScene("Client"); 
             } else {
                 resultText.text = "ERROR. USERNAME AND/OR PASSWORD INCORRECT.  PLEASE TRY AGAIN.";
             }
